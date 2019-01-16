@@ -1,0 +1,4 @@
+{
+  "serviceType" : "integration",
+  "description" : "The Location Lookup service provides one operation to return City Name and Zip code for a provided latitude and longitude value."
+}

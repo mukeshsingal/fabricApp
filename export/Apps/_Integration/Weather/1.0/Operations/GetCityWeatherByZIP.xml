@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service serviceGroup="" cachable="false" cacheduration="" description="" endpoint="default" groupType="" id="GetCityWeatherByZIP" passwordencrypted="false" security="authorized_app_user" type="soapserviceConnector" smscode="" smsenabled="false">
+    <service-config>
+        <config-param api-version="" appid="" name="preprocessorname" value=""/>
+        <config-param api-version="" appid="" name="postprocessorname" value=""/>
+        <config-param api-version="" appid="" name="endpointUrl" value="http://wsf.cdyne.com/WeatherWS/Weather.asmx"/>
+        <config-param api-version="" appid="" name="dataObjectName" value=""/>
+        <config-param api-version="" appid="" name="ignorehttpproxy" value="true"/>
+        <config-param api-version="" appid="" name="soapAction" value="http://ws.cdyne.com/WeatherWS/GetCityWeatherByZIP"/>
+        <config-param api-version="" appid="" name="soap-version" value="1.1"/>
+        <config-param api-version="" appid="" name="sockettimeout" value=""/>
+        <config-param api-version="" appid="" name="responseEncoding" value="UTF-8"/>
+    </service-config>
+    <service-input passthrough="false">
+        <header datatype="" name="" passthrough="false"/>
+        <param datatype="string" defaultvalue="" description="" encode="true" format="" formatvalue="" name="zip" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="" targetdatatype="" testvalue="94538" value="">
+            <accessType></accessType>
+        </param>
+        <template-param datatype="" defaultvalue="&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:weat=&quot;http://ws.cdyne.com/WeatherWS/&quot;&gt;&#xA;   &lt;soapenv:Header/&gt;&#xA;   &lt;soapenv:Body&gt;&#xA;      &lt;weat:GetCityWeatherByZIP&gt;&#xA;         &lt;!--Optional:--&gt;&#xA;         &lt;weat:ZIP&gt;$zip&lt;/weat:ZIP&gt;&#xA;      &lt;/weat:GetCityWeatherByZIP&gt;&#xA;   &lt;/soapenv:Body&gt;&#xA;&lt;/soapenv:Envelope&gt;" description="" encode="false" format="" formatvalue="" name="message" order="" sms-name="" src="" sourcevalue="" srcformatvalue="" target="" targetdatatype="" value="&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:weat=&quot;http://ws.cdyne.com/WeatherWS/&quot;&gt;&#xA;   &lt;soapenv:Header/&gt;&#xA;   &lt;soapenv:Body&gt;&#xA;      &lt;weat:GetCityWeatherByZIP&gt;&#xA;         &lt;!--Optional:--&gt;&#xA;         &lt;weat:ZIP&gt;$zip&lt;/weat:ZIP&gt;&#xA;      &lt;/weat:GetCityWeatherByZIP&gt;&#xA;   &lt;/soapenv:Body&gt;&#xA;&lt;/soapenv:Envelope&gt;">
+            <accessType></accessType>
+        </template-param>
+    </service-input>
+    <service-output passthrough="false">
+        <param datatype="string" defaultvalue="" description="" encode="false" format="None" formatvalue="" name="city" order="" sms-name="" src="//City" sourcevalue="" srcformatvalue="" target="response" targetdatatype="java.lang.String" value="">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="" description="" encode="false" format="None" formatvalue="" name="state" order="" sms-name="" src="//State" sourcevalue="" srcformatvalue="" target="response" targetdatatype="java.lang.String" value="">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="" description="" encode="false" format="None" formatvalue="" name="temp" order="" sms-name="" src="//Temperature" sourcevalue="" srcformatvalue="" target="response" targetdatatype="java.lang.String" value="">
+            <accessType></accessType>
+        </param>
+        <param datatype="number" defaultvalue="" description="" encode="false" format="None" formatvalue="" name="opstatus" order="" sms-name="" src="" sourcevalue="" srcformatvalue="" target="" targetdatatype="java.lang.String" value="">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="" description="" encode="false" format="None" formatvalue="" name="errmsg" order="" sms-name="" src="" sourcevalue="" srcformatvalue="" target="" targetdatatype="java.lang.String" value="">
+            <accessType></accessType>
+        </param>
+        <param datatype="number" defaultvalue="" description="" encode="false" format="None" formatvalue="" name="httpStatusCode" order="" sms-name="" src="" sourcevalue="" srcformatvalue="" target="" targetdatatype="java.lang.String" value="">
+            <accessType></accessType>
+        </param>
+    </service-output>
+</service>

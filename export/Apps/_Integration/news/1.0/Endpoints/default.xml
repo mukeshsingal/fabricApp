@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<endpoint encryptSecureInfo="false" name="default" type="XML" url="https://news.google.com/news/section?output=rss">
+    <apiThrottling>
+        <entry>
+            <key>rateLimitPerIP</key>
+            <value>100</value>
+        </entry>
+        <entry>
+            <key>totalRateLimit</key>
+            <value>5000</value>
+        </entry>
+    </apiThrottling>
+    <config>
+        <entry>
+            <key>ignorehttpproxy</key>
+            <value>true</value>
+        </entry>
+    </config>
+</endpoint>

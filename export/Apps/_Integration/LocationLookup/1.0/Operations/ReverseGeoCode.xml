@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service serviceGroup="" cachable="false" cacheduration="" description="" endpoint="default" groupType="" id="ReverseGeoCode" passwordencrypted="false" security="authorized_app_user" type="plainxmlserviceConnector" smscode="" smsenabled="false">
+    <service-config>
+        <config-param api-version="" appid="" name="preprocessorname" value=""/>
+        <config-param api-version="" appid="" name="postprocessorname" value=""/>
+        <config-param api-version="" appid="" name="endpointUrl" value="http://nominatim.openstreetmap.org/reverse?format=xml&amp;lat=$lat&amp;lon=$lon"/>
+        <config-param api-version="" appid="" name="http.method" value="GET"/>
+        <config-param api-version="" appid="" name="dataObjectName" value=""/>
+        <config-param api-version="" appid="" name="ignorehttpproxy" value="true"/>
+        <config-param api-version="" appid="" name="sockettimeout" value=""/>
+        <config-param api-version="" appid="" name="responseEncoding" value="UTF-8"/>
+    </service-config>
+    <service-input passthrough="false">
+        <header datatype="" name="" passthrough="false"/>
+        <param datatype="string" defaultvalue="" description="" encode="true" format="" formatvalue="" name="lat" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="" targetdatatype="" testvalue="17.4414" value="">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="" description="" encode="true" format="" formatvalue="" name="lon" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="" targetdatatype="" testvalue="78.3809" value="">
+            <accessType></accessType>
+        </param>
+    </service-input>
+    <service-output passthrough="false">
+        <param datatype="string" defaultvalue="" description="" encode="false" format="None" formatvalue="" name="zip" order="" sms-name="" src="//addressparts/postcode" sourcevalue="" srcformatvalue="" target="response" targetdatatype="java.lang.String" value="">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="" description="" encode="false" format="None" formatvalue="" name="cityName" order="" sms-name="" src="//addressparts/city" sourcevalue="" srcformatvalue="" target="response" targetdatatype="java.lang.String" value="">
+            <accessType></accessType>
+        </param>
+        <param datatype="number" defaultvalue="" description="" encode="false" format="None" formatvalue="" name="opstatus" order="" sms-name="" src="" sourcevalue="" srcformatvalue="" target="" targetdatatype="java.lang.String" value="">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="" description="" encode="false" format="None" formatvalue="" name="errmsg" order="" sms-name="" src="" sourcevalue="" srcformatvalue="" target="" targetdatatype="java.lang.String" value="">
+            <accessType></accessType>
+        </param>
+        <param datatype="number" defaultvalue="" description="" encode="false" format="None" formatvalue="" name="httpStatusCode" order="" sms-name="" src="" sourcevalue="" srcformatvalue="" target="" targetdatatype="java.lang.String" value="">
+            <accessType></accessType>
+        </param>
+    </service-output>
+</service>
