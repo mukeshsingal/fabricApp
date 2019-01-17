@@ -1,0 +1,11 @@
+{
+    "subType": "customapp",
+    "description": "TestApp",
+    "version": "1.0",
+    "intSvcs": [
+        {
+            "name": "AccountInfo",
+            "version": "1.0"
+        }
+    ]
+}

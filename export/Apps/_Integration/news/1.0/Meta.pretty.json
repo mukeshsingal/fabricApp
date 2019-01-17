@@ -1,4 +1,0 @@
-{
-    "serviceType": "integration",
-    "description": "The News service returns news content from Google News. It has the following operations:\n   \nGetNews -- Returns the default news results from Google with no input parameters and no filters\n\nGetNewsForCategory -- Accepts the Google News topic code to limit the news results for that category. \n      Example Topic codes: World (w), US (n), Business (b), Technology (tc), Entertainment (e), Sports (s), Science (snc), Health (m)\n\nGetLocalNews -- Accepts one parameter and submits that to Google News as the query parameter to filter the news results. This is used to limit the results to a specific City or any search term sent as an input parameter\n\n\nhttps://productforums.google.com/forum/#!topic/news/CwDLdEfUwSk"
-}

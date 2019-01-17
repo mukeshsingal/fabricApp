@@ -1,4 +1,0 @@
-{
-    "serviceType": "integration",
-    "description": "The Weather Service has one operation for retrieving the current weather for a given US zip code and a second operation for returning a 7 day weather forecast for a given US zip code. NOTE: That the Weather forecast is only sample data and is not accurate."
-}

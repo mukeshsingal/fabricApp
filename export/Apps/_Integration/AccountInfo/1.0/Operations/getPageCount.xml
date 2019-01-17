@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service serviceGroup="" cachable="false" cacheduration="" description="" endpoint="default" groupType="" id="getPageCount" passwordencrypted="false" security="public" type="jsonConnector" smscode="" smsenabled="false">
+    <service-config>
+        <config-param api-version="" appid="" name="preprocessorname" value=""/>
+        <config-param api-version="" appid="" name="postprocessorname" value=""/>
+        <config-param api-version="" appid="" name="preprocessorJS" value="function renameHeader() {&#xA;  var token = request.getHeader('Authorization');&#xA;  logger.debug(&quot;Adding the X-Kony Header&quot;);&#x9;&#x9;&#x9;&#xA;  request.addRequestParam_('X-Kony-Authorization', token);&#xA;  var data = JSON.parse(serviceInputParams.get('path'));&#xA;  var i;&#xA;  var filters = &quot;&quot;;&#xA;  var dataStr = &quot;&quot;;&#xA;  for(var key in data) {&#xA;    filters = filters + key + &quot;,&quot;;&#xA;    logger.error(&quot;The data is&quot; + key + data[key]);&#xA;    dataStr = dataStr + key+ &quot;=&quot; + data[key] + &quot;&amp;&quot;;&#xA;  }&#xA;  dataStr = dataStr + &quot;filters=&quot; + filters + &quot;page,&quot;;&#xA;  logger.error(&quot;The formed data is&quot; + dataStr);&#xA;  serviceInputParams.put('reportpath', dataStr);&#xA;}&#xA;renameHeader();"/>
+        <config-param api-version="" appid="" name="postprocessorJS" value=""/>
+        <config-param api-version="" appid="" name="endpointUrl" value="https://api.$env$suffix/accounts/$accountguid/reports?jasper_session=$jasper_session&amp;resource_name=$resource_name&amp;awselb_session=$awselb_session&amp;$reportpath&amp;page=$page&amp;page_count_type=$page_count_type"/>
+        <config-param api-version="" appid="" name="ignorehttpproxy" value="true"/>
+        <config-param api-version="" appid="" name="http.method" value="GET"/>
+        <config-param api-version="" appid="" name="dataObjectName" value=""/>
+        <config-param api-version="" appid="" name="sockettimeout" value=""/>
+        <config-param api-version="" appid="" name="responseEncoding" value="UTF-8"/>
+        <config-param api-version="" appid="" name="isembedxmlpresent" value="false"/>
+    </service-config>
+    <service-input passthrough="false">
+        <header datatype="" name="" passthrough="false">
+            <param datatype="string" defaultvalue="" description="" encode="false" format="None" formatvalue="" name="X-Kony-Authorization" order="" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="" targetdatatype="" testvalue="" value="">
+                <accessType></accessType>
+            </param>
+            <param datatype="string" defaultvalue="" description="" encode="false" format="None" formatvalue="" name="Authorization" order="" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="" targetdatatype="" testvalue="" value="">
+                <accessType></accessType>
+            </param>
+        </header>
+        <param datatype="string" defaultvalue="7801A6412F343CED33A1EBCECF360216" description="" encode="true" format="None" formatvalue="" name="jasper_session" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="7801A6412F343CED33A1EBCECF360216">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="/public/reports/active_users" description="" encode="true" format="None" formatvalue="" name="resource_name" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="/public/reports/active_users">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="4F310FFD02D89AF94754E68851736725D7F1A36C0B2DD0CB896C2B0BA357FCBD36E6387359683884F917819DCBC3C84A69836DD4BC193155F55F69A18AFAF9EF8AD4EFE2DFEADA4727559F60BED28F660AA86AD3A3" description="" encode="true" format="None" formatvalue="" name="awselb_session" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="4F310FFD02D89AF94754E68851736725D7F1A36C0B2DD0CB896C2B0BA357FCBD36E6387359683884F917819DCBC3C84A69836DD4BC193155F55F69A18AFAF9EF8AD4EFE2DFEADA4727559F60BED28F660AA86AD3A3">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="{ &quot;aggregation&quot;: &quot;none&quot;, &quot;enddate&quot;: &quot;2016-04-22&quot;, &quot;startdate&quot;: &quot;2016-04-01&quot;, &quot;eid&quot; : &quot;[5eb316bd-ba2c-411d-9c59-9df5ec23f2e2],[6e54a3fa-ae63-4d04-b254-f18975b25465]&quot; }" description="" encode="false" format="None" formatvalue="" name="path" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="{ &quot;aggregation&quot;: &quot;none&quot;, &quot;enddate&quot;: &quot;2016-04-22&quot;, &quot;startdate&quot;: &quot;2016-04-01&quot;, &quot;eid&quot; : &quot;[5eb316bd-ba2c-411d-9c59-9df5ec23f2e2],[6e54a3fa-ae63-4d04-b254-f18975b25465]&quot; }">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="924e1cd8-2fee-4600-9882-ff9eac92f114" description="" encode="true" format="None" formatvalue="" name="accountguid" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="924e1cd8-2fee-4600-9882-ff9eac92f114">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="" description="" encode="true" format="None" formatvalue="" name="reportpath" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="" description="" encode="false" format="None" formatvalue="" name="env" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="kony.com/api/v1_0" description="" encode="false" format="None" formatvalue="" name="suffix" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="kony.com/api/v1_0">
+            <accessType></accessType>
+        </param>
+        <param datatype="number" defaultvalue="" description="" encode="false" format="None" formatvalue="" name="page" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="" description="" encode="false" format="None" formatvalue="" name="page_count_type" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="">
+            <accessType></accessType>
+        </param>
+    </service-input>
+    <service-output passthrough="true"/>
+</service>

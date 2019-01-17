@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service serviceGroup="" cachable="false" cacheduration="" description="" endpoint="default" groupType="" id="giveEnvironmentAccess" passwordencrypted="false" security="public" type="jsonConnector" smscode="" smsenabled="false">
+    <service-config>
+        <config-param api-version="" appid="" name="preprocessorname" value=""/>
+        <config-param api-version="" appid="" name="postprocessorname" value=""/>
+        <config-param api-version="" appid="" name="preprocessorJS" value="function renameHeader() {&#xA;  var token = request.getHeader('Authorization');&#xA;  logger.debug(&quot;Adding the X-Kony Header&quot;);&#x9;&#x9;&#x9;&#xA;  request.addRequestParam_('X-Kony-Authorization', token);&#xA;}&#xA;renameHeader();"/>
+        <config-param api-version="" appid="" name="postprocessorJS" value=""/>
+        <config-param api-version="" appid="" name="endpointUrl" value="https://api.$env$suffix/accounts/$accountguid/users/$userguid/environment-permissions/$envguid"/>
+        <config-param api-version="" appid="" name="ignorehttpproxy" value="true"/>
+        <config-param api-version="" appid="" name="http.method" value="PUT"/>
+        <config-param api-version="" appid="" name="dataObjectName" value=""/>
+        <config-param api-version="" appid="" name="sockettimeout" value=""/>
+        <config-param api-version="" appid="" name="responseEncoding" value="UTF-8"/>
+        <config-param api-version="" appid="" name="isembedxmlpresent" value="false"/>
+    </service-config>
+    <service-input passthrough="false">
+        <header datatype="" name="" passthrough="false">
+            <param datatype="string" defaultvalue="" description="" encode="false" format="None" formatvalue="" name="X-Kony-Authorization" order="" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="" targetdatatype="" testvalue="eyAiYWxnIjogIk5PTkUiLCAidHlwIjogImp3dCIgfQ.eyAiX3Njb3BlIjogImciLCAiX2FjcyI6ICJhY2NvdW50cyIsICJleHAiOiAxNDYwNTQ5Mjc4LCAiX3Nlc3Npb25faWQiOiAiYWJhM2Q0NzUtZTdlNy00Nzg1LTkxNTUtNGRkMmUyZDhkNWZkIiwgIl9pc3NtZXRhIjogIi9tZXRhZGF0YS9saVA2T25mNjlQV1FjWERTMmxyUGJ3PT0iLCAiX3ZlciI6ICJ2MS4xIiwgIl9wcm92X3VzZXJpZCI6ICI3MGFlZWMxNS00OTE5LTQwYmYtYjcwOS00MTJlYmMyNjNkZmYiLCAiX2lkcCI6ICJrb255X2FjY291bnRzIiwgIl9lbWFpbCI6ICJ2aXNoYWwuc2hhcm1hQGtvbnkuY29tIiwgImlzcyI6ICJodHRwczovL2FjY291bnRzLmF1dGgucWEta29ueWNsb3VkLmNvbSIsICJqdGkiOiAiMGE4ODcyZWYtYTRhZC00MWFmLTg5NDUtMzg0ZGNmYTc3M2MzIiwgIl9zZXNzaW9uX3RpZCI6ICJhY2NvdW50cyIsICJpYXQiOiAxNDYwNTQ1Njc4LCAiX3B1aWQiOiA0NjgyOTY4NTY0ODk4IH0.MCwCFBR24GOW0ueX-yDsLZAW9e1nSc6tAhQQ338H_csPk0riPQYfyNjpaRBR2g" value="">
+                <accessType></accessType>
+            </param>
+            <param datatype="string" defaultvalue="eyAiYWxnIjogIk5PTkUiLCAidHlwIjogImp3dCIgfQ.eyAiX3Njb3BlIjogImciLCAiX2FjcyI6ICJhY2NvdW50cyIsICJleHAiOiAxNDYwNjE4NzYzLCAiX3Nlc3Npb25faWQiOiAiYTQ3YzFhZmQtN2Q4Ni00ZDEyLThhNmEtMjYzOTgzNjlhZTA2IiwgIl9pc3NtZXRhIjogIi9tZXRhZGF0YS9saVA2T25mNjlQV1FjWERTMmxyUGJ3PT0iLCAiX3ZlciI6ICJ2MS4xIiwgIl9wcm92X3VzZXJpZCI6ICI3MGFlZWMxNS00OTE5LTQwYmYtYjcwOS00MTJlYmMyNjNkZmYiLCAiX2lkcCI6ICJrb255X2FjY291bnRzIiwgIl9lbWFpbCI6ICJ2aXNoYWwuc2hhcm1hQGtvbnkuY29tIiwgImlzcyI6ICJodHRwczovL2FjY291bnRzLmF1dGgucWEta29ueWNsb3VkLmNvbSIsICJqdGkiOiAiNDExYTQ4OWItNjQ4NC00MTkwLTg4MTAtYmZkNjIzYzY5Y2I2IiwgIl9zZXNzaW9uX3RpZCI6ICJhY2NvdW50cyIsICJpYXQiOiAxNDYwNjE1MTYzLCAiX3B1aWQiOiA0NjgyOTY4NTY0ODk4IH0.eyAiYWxnIjogIk5PTkUiLCAidHlwIjogImp3dCIgfQ.eyAiX3Njb3BlIjogImciLCAiX2FjcyI6ICJhY2NvdW50cyIsICJleHAiOiAxNDYxMzA3MDkwLCAiX3Nlc3Npb25faWQiOiAiZTdjNjRkMTctODI4ZC00NTE0LThhOWEtNTgxZGQ2OWVjYzZmIiwgIl9pc3NtZXRhIjogIi9tZXRhZGF0YS9saVA2T25mNjlQV1FjWERTMmxyUGJ3PT0iLCAiX3ZlciI6ICJ2MS4xIiwgIl9wcm92X3VzZXJpZCI6ICI3MGFlZWMxNS00OTE5LTQwYmYtYjcwOS00MTJlYmMyNjNkZmYiLCAiX2lkcCI6ICJrb255X2FjY291bnRzIiwgIl9lbWFpbCI6ICJ2aXNoYWwuc2hhcm1hQGtvbnkuY29tIiwgImlzcyI6ICJodHRwczovL2FjY291bnRzLmF1dGgucWEta29ueWNsb3VkLmNvbSIsICJqdGkiOiAiNDIxOTY1NDctNmNiMy00YTAyLTlkMjItMGIyMTExMDU3ZWRlIiwgIl9zZXNzaW9uX3RpZCI6ICJhY2NvdW50cyIsICJpYXQiOiAxNDYxMzAzNDkwLCAiX3B1aWQiOiA0NjgyOTY4NTY0ODk4IH0.MCwCFHCLoXx3kfl03lOHtK88u1AzUOIAAhQwZafV7U1lp_DXyHfaRe44A9AfEA" description="" encode="false" format="None" formatvalue="" name="Authorization" order="" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="" targetdatatype="" testvalue="" value="eyAiYWxnIjogIk5PTkUiLCAidHlwIjogImp3dCIgfQ.eyAiX3Njb3BlIjogImciLCAiX2FjcyI6ICJhY2NvdW50cyIsICJleHAiOiAxNDYwNjE4NzYzLCAiX3Nlc3Npb25faWQiOiAiYTQ3YzFhZmQtN2Q4Ni00ZDEyLThhNmEtMjYzOTgzNjlhZTA2IiwgIl9pc3NtZXRhIjogIi9tZXRhZGF0YS9saVA2T25mNjlQV1FjWERTMmxyUGJ3PT0iLCAiX3ZlciI6ICJ2MS4xIiwgIl9wcm92X3VzZXJpZCI6ICI3MGFlZWMxNS00OTE5LTQwYmYtYjcwOS00MTJlYmMyNjNkZmYiLCAiX2lkcCI6ICJrb255X2FjY291bnRzIiwgIl9lbWFpbCI6ICJ2aXNoYWwuc2hhcm1hQGtvbnkuY29tIiwgImlzcyI6ICJodHRwczovL2FjY291bnRzLmF1dGgucWEta29ueWNsb3VkLmNvbSIsICJqdGkiOiAiNDExYTQ4OWItNjQ4NC00MTkwLTg4MTAtYmZkNjIzYzY5Y2I2IiwgIl9zZXNzaW9uX3RpZCI6ICJhY2NvdW50cyIsICJpYXQiOiAxNDYwNjE1MTYzLCAiX3B1aWQiOiA0NjgyOTY4NTY0ODk4IH0.eyAiYWxnIjogIk5PTkUiLCAidHlwIjogImp3dCIgfQ.eyAiX3Njb3BlIjogImciLCAiX2FjcyI6ICJhY2NvdW50cyIsICJleHAiOiAxNDYxMzA3MDkwLCAiX3Nlc3Npb25faWQiOiAiZTdjNjRkMTctODI4ZC00NTE0LThhOWEtNTgxZGQ2OWVjYzZmIiwgIl9pc3NtZXRhIjogIi9tZXRhZGF0YS9saVA2T25mNjlQV1FjWERTMmxyUGJ3PT0iLCAiX3ZlciI6ICJ2MS4xIiwgIl9wcm92X3VzZXJpZCI6ICI3MGFlZWMxNS00OTE5LTQwYmYtYjcwOS00MTJlYmMyNjNkZmYiLCAiX2lkcCI6ICJrb255X2FjY291bnRzIiwgIl9lbWFpbCI6ICJ2aXNoYWwuc2hhcm1hQGtvbnkuY29tIiwgImlzcyI6ICJodHRwczovL2FjY291bnRzLmF1dGgucWEta29ueWNsb3VkLmNvbSIsICJqdGkiOiAiNDIxOTY1NDctNmNiMy00YTAyLTlkMjItMGIyMTExMDU3ZWRlIiwgIl9zZXNzaW9uX3RpZCI6ICJhY2NvdW50cyIsICJpYXQiOiAxNDYxMzAzNDkwLCAiX3B1aWQiOiA0NjgyOTY4NTY0ODk4IH0.MCwCFHCLoXx3kfl03lOHtK88u1AzUOIAAhQwZafV7U1lp_DXyHfaRe44A9AfEA">
+                <accessType></accessType>
+            </param>
+        </header>
+        <param datatype="string" defaultvalue="924e1cd8-2fee-4600-9882-ff9eac92f114" description="" encode="true" format="None" formatvalue="" name="accountguid" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="924e1cd8-2fee-4600-9882-ff9eac92f114" value="924e1cd8-2fee-4600-9882-ff9eac92f114">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="70aeec15-4919-40bf-b709-412ebc263dff" description="" encode="true" format="None" formatvalue="" name="userguid" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="70aeec15-4919-40bf-b709-412ebc263dff">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="" description="" encode="true" format="None" formatvalue="" name="envguid" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="" description="" encode="true" format="None" formatvalue="" name="access" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="" description="" encode="false" format="None" formatvalue="" name="env" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="kony.com/api/v1_0" description="" encode="false" format="None" formatvalue="" name="suffix" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="kony.com/api/v1_0">
+            <accessType></accessType>
+        </param>
+        <template-param datatype="" defaultvalue="{&#xA;&quot;access&quot; : $access&#xA;}" description="" encode="false" format="" formatvalue="" name="message" order="" sms-name="" src="" sourcevalue="" srcformatvalue="" target="" targetdatatype="" value="{&#xA;&quot;access&quot; : $access&#xA;}">
+            <accessType></accessType>
+        </template-param>
+    </service-input>
+    <service-output passthrough="true"/>
+</service>

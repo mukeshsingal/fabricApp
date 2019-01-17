@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service serviceGroup="" cachable="false" cacheduration="" description="" endpoint="default" groupType="" id="inputcontrols" passwordencrypted="false" security="public" type="jsonConnector" smscode="" smsenabled="false">
+    <service-config>
+        <config-param api-version="" appid="" name="preprocessorname" value=""/>
+        <config-param api-version="" appid="" name="postprocessorname" value=""/>
+        <config-param api-version="" appid="" name="preprocessorJS" value="function renameHeader() {&#xA;  var token = request.getHeader('Authorization');&#xA;  logger.debug(&quot;Adding the X-Kony Header&quot;);&#x9;&#x9;&#x9;&#xA;  request.addRequestParam_('X-Kony-Authorization', token);&#xA;}&#xA;renameHeader();"/>
+        <config-param api-version="" appid="" name="postprocessorJS" value=""/>
+        <config-param api-version="" appid="" name="endpointUrl" value="https://api.$env$suffix/accounts/$accountguid/reports?cloudType=$cloudType&amp;jasper_session=$jasper_session&amp;resourceUri=$resourceUri&amp;resourceName=$resourceName&amp;awselb_session=$awselb_session&amp;inputControls=$inputControls"/>
+        <config-param api-version="" appid="" name="ignorehttpproxy" value="true"/>
+        <config-param api-version="" appid="" name="http.method" value="GET"/>
+        <config-param api-version="" appid="" name="dataObjectName" value=""/>
+        <config-param api-version="" appid="" name="sockettimeout" value=""/>
+        <config-param api-version="" appid="" name="responseEncoding" value="UTF-8"/>
+        <config-param api-version="" appid="" name="isembedxmlpresent" value="false"/>
+    </service-config>
+    <service-input passthrough="false">
+        <header datatype="" name="" passthrough="false">
+            <param datatype="string" defaultvalue="" description="" encode="false" format="None" formatvalue="" name="X-Kony-Authorization" order="" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="" targetdatatype="" testvalue="" value="">
+                <accessType></accessType>
+            </param>
+            <param datatype="string" defaultvalue="" description="" encode="false" format="None" formatvalue="" name="Authorization" order="" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="" targetdatatype="" testvalue="" value="">
+                <accessType></accessType>
+            </param>
+        </header>
+        <param datatype="string" defaultvalue="924e1cd8-2fee-4600-9882-ff9eac92f114" description="" encode="true" format="None" formatvalue="" name="accountguid" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="924e1cd8-2fee-4600-9882-ff9eac92f114">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="mobileFabric" description="" encode="true" format="None" formatvalue="" name="cloudType" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="mobileFabric">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="FAF6AD0A6E3DE4BAC8AA099266A3F038" description="" encode="true" format="None" formatvalue="" name="jasper_session" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="FAF6AD0A6E3DE4BAC8AA099266A3F038">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="/public/reports/active_users" description="" encode="true" format="None" formatvalue="" name="resourceUri" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="/public/reports/active_users">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="active_users" description="" encode="true" format="None" formatvalue="" name="resourceName" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="active_users">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="4F310FFD02D89AF94754E68851736725D7F1A36C0B64CF76E7AF28FA16C7A497D11BE993AA5E63574760D61D5472010E21B4EAA9C56F60AF1F7B304EEFCF2DE0CA06DF6446EADA4727559F60BED28F660AA86AD3A3" description="" encode="true" format="None" formatvalue="" name="awselb_session" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="4F310FFD02D89AF94754E68851736725D7F1A36C0B64CF76E7AF28FA16C7A497D11BE993AA5E63574760D61D5472010E21B4EAA9C56F60AF1F7B304EEFCF2DE0CA06DF6446EADA4727559F60BED28F660AA86AD3A3">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="true" description="" encode="true" format="None" formatvalue="" name="inputControls" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="true">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="" description="" encode="false" format="None" formatvalue="" name="env" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="">
+            <accessType></accessType>
+        </param>
+        <param datatype="string" defaultvalue="kony.com/api/v1_0" description="" encode="false" format="None" formatvalue="" name="suffix" order="" passnull="false" sms-name="" src="request" sourcevalue="" srcformatvalue="" target="request" targetdatatype="java.lang.String" testvalue="" value="kony.com/api/v1_0">
+            <accessType></accessType>
+        </param>
+    </service-input>
+    <service-output passthrough="true"/>
+</service>
